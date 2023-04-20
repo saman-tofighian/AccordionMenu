@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        ul{
+            width: 50%;
+            margin: 100px auto;
+        }
+        li{
+            border-bottom: 1px solid #000;
+            list-style-type: none;
+            height: 40px;
+            overflow: hidden;
+            transition: 1s linear;
+        }
+        h2{
+            background: #28d;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            cursor: pointer;
+            height: 40px;
+        }
+        p{
+            padding: 22px;
+            text-align: justify;
+            background-color: #123;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li data-name="off">
+            <h2>menu click</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit</p>
+        </li>
+        <li data-name="off">
+            <h2>menu click</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic itaque, doloribus rerum corrupti tempore quis autem,</p>
+        </li>
+        <li data-name="off">
+            <h2>menu click</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic itaque, doloribus rerum corrupti tempore quis autem, vero temporibus impedit dolore quaerat veritatis explicabo provident animi sapiente porro. Eum, qui eius.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic itaque, doloribus rerum corrupti tempore quis autem, vero temporibus impedit dolore quaerat veritatis explicabo provident animi sapiente porro. Eum, qui eius.
+            </p>
+        </li>
+        <li data-name="off">
+            <h2>menu click</h2>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic itaque, doloribus rerum corrupti tempore quis autem, vero temporibus impedit dolore quaerat veritatis explicabo provident animi sapiente porro. Eum, qui eius.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic itaque, doloribus rerum corrupti tempore quis autem, vero temporibus impedit dolore quaerat veritatis explicabo provident animi sapiente porro. Eum, qui eius.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic itaque, doloribus rerum corrupti tempore quis autem, vero temporibus impedit dolore quaerat veritatis explicabo provident animi sapiente porro. Eum, qui eius.
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Hic itaque, doloribus rerum corrupti tempore quis autem, vero temporibus impedit dolore quaerat veritatis explicabo provident animi sapiente porro. Eum, qui eius.
+            </p>
+        </li>
+    </ul>
+</body>
+<script>
+    let _all =document.querySelectorAll('li')
+
+    _all.forEach((item , index) =>{
+        item.addEventListener('click', ()=>{
+            let y = item.children
+            y = y[1].clientHeight
+            
+            for(i=0; i<_all.length; i++){
+                _all[i].style.height = '40px'
+                if(index != i){
+                    _all[i].setAttribute('data-name', 'off')
+                }
+            }
+            let temp = item.getAttribute('data-name')
+            if(temp == 'off'){
+                item.style.height = (y+40) + 'px'
+                item.setAttribute('data-name', 'on')
+            }
+            else{
+                temp.style.height = '40px'
+                item.setAttribute('data-name', 'off')
+            }
+
+            
+        })
+    })
+</script>
+</html>
